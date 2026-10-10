@@ -60,3 +60,16 @@ describe('PaymentService', () => {
     })
   })
 })
+describe('payment amount', () => {
+  test('throws an error when payment amount is negative', () => {
+    expect(() => {
+      new PaymentService(-1)
+    }).toThrow('Payment amount must be greater than 0')
+  })
+
+  test('throws an error when payment amount is zero', () => {
+    expect(() => {
+      new PaymentService(0)
+    }).toThrow('Payment amount must be greater than 0')
+  })
+})
